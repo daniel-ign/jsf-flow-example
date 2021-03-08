@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<body>
+<h:form>
+    <p:remoteCommand name="tip" update="msgs" action="#{trivia.tip}"/>
+
+    <div class="p-field p-grid">
+        <div class="p-field" style="margin: 2em">
+            <p:outputLabel for="questionOne" style="margin-right: 1em">What is the capital of Canada?</p:outputLabel>
+            <p:inputText id="questionOne" type="text" value="#{trivia.question1}"/>
+            <p:commandButton type="button" id="firstHelp" icon="pi pi-cog"/>
+            <p:tooltip for="firstHelp" value="It's not Oakville definitely" showEffect="clip" hideEffect="fold"/>
+        </div>
+        <div class="p-field" style="margin: 2em">
+            <p:outputLabel for="questionTwo" style="margin-right: 1em">Easternmost point of Eurasia: </p:outputLabel>
+            <p:inputText id="questionTwo" type="text" value="#{trivia.question2}"/>
+            <p:commandButton type="button" id="secondHelp" icon="pi pi-cog"/>
+            <p:tooltip for="secondHelp" value="It's located somewhere in Chukotka" showEffect="clip" hideEffect="fold"/>
+        </div>
+        <div class="p-field" style="margin: 2em">
+            <p:outputLabel for="questionThree"
+                           style="margin-right: 1em">Biggest mountain in the world including sea level: </p:outputLabel>
+            <p:inputText id="questionThree" type="text" value="#{trivia.question3}"/>
+            <p:commandButton type="button" id="thirdHelp" icon="pi pi-cog"/>
+            <p:tooltip for="thirdHelp" value="It's not Everest :)" showEffect="clip" hideEffect="fold"/>
+        </div>
+
+        <div class="p-field" style="margin: 2em">
+            <p:outputLabel for="questionFour"
+                           style="margin-right: 1em">Sea with no coastline whatsoever: </p:outputLabel>
+            <p:inputText id="questionFour" type="text" value="#{trivia.question4}"/>
+            <p:commandButton type="button" id="fourthHelp" icon="pi pi-cog"/>
+            <p:tooltip for="fourthHelp" value="It's named after seaweed" showEffect="clip" hideEffect="fold"/>
+        </div>
+
+        <div class="p-field" style="margin: 2em">
+            <p:outputLabel for="questionFive"
+                           style="margin-right: 1em">Country with the largest number of ancient pyramids: </p:outputLabel>
+            <p:inputText id="questionFive" type="text" value="#{trivia.question5}"/>
+            <p:commandButton type="button" id="fifthHelp" icon="pi pi-cog"/>
+            <p:tooltip for="fifthHelp" value="It's not Egypt" showEffect="clip" hideEffect="fold"/>
+        </div>
+
+        <div class="p-field" style="margin: 2em">
+            <p:outputLabel for="questionSix"
+                           style="margin-right: 1em">Countries in South America that don't border with Brazil: </p:outputLabel>
+            <p:inputText id="questionSix" type="text" value="#{trivia.question6}"/>
+            <p:commandButton type="button" value="Get the tip" icon="pi pi-refresh" onclick="tip()"/>
+        </div>
+        <p:commandButton style="margin: 2em" value="Submit Answers" type="submit"
+                         icon="pi pi-check" iconPos="right" action="#{trivia.validateAnswer}"/>
+
+    </div>
+    <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+</h:form>
+
+</body>
+</html>
